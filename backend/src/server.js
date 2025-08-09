@@ -9,12 +9,16 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 5001;
 
-connectDB();
-
 app.use(express.json());
 app.use(rateLimiter);
 app.use("/api/notes", notesRoutes);
 
-app.listen(port, () => {
-    console.log(`Server started on port: ${port}`);
-});
+try {
+    connectDB().then(() => {
+        app.listen(port, () => {
+            console.log(`Server started on port: ${port}`);
+        });
+    });
+} catch (error) {
+    console.error("Error in starting up the server...", error);
+}
