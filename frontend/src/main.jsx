@@ -8,7 +8,9 @@ import App from './App.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <div data-theme="lemonade">
+        <App />
+      </div>
       <Toaster />
     </BrowserRouter>
   </StrictMode>,
