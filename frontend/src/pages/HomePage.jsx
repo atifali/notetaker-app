@@ -3,11 +3,14 @@ import Navbar from "../components/Navbar"
 import RateLimitBanner from "../components/RateLimitBanner";
 
 const HomePage = () => {
-    const [rateLimited, setRateLimited] = useState(false);
+    const [isRateLimited, setIsRateLimited] = useState(false);
+    const [notes, setNotes] = useState([]);
+    const [loading, setLoading] = useState(true);
+
     return (
         <div className="min-h-screen">
             <Navbar />
-            {rateLimited && <RateLimitBanner />}
+            {isRateLimited && <RateLimitBanner />}
         </div>
     )
 }
