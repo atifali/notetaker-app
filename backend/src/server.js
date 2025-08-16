@@ -12,7 +12,9 @@ const app = express();
 const port = process.env.PORT || 5001;
 
 app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length]'));
-app.use(cors());
+app.use(cors({
+    origin: "http://localhost:5173/"
+}));
 app.use(express.json());
 app.use(rateLimiter);
 app.use("/api/notes", notesRoutes);
