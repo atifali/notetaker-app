@@ -38,6 +38,19 @@ const CreatePage = () => {
                                         onChange={(e) => setTitle(e.target.value)}
                                     />
                                 </div>
+                                <div className="form-control mb-4">
+                                    <label className="label">
+                                        <span className="label-text">
+                                            Content
+                                        </span>
+                                    </label>
+                                    <textarea type="text"
+                                        placeholder="Write your note here..."
+                                        className="textarea textarea-bordered h-32"
+                                        value={content}
+                                        onChange={(e) => setContent(e.target.value)}
+                                    />
+                                </div>
                             </form>
                         </div>
                     </div>
