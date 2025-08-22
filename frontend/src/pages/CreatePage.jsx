@@ -1,5 +1,6 @@
 import { ArrowLeftIcon } from "lucide-react";
-import { useState } from "react"
+import { useState } from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router";
 
 const CreatePage = () => {
@@ -7,8 +8,13 @@ const CreatePage = () => {
     const [content, setContent] = useState("");
     const [loading, setLoading] = useState(false);
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
 
+        if (!title || !content) {
+            toast.error("All fields are required!");
+            return;
+        }
     }
 
     return (
