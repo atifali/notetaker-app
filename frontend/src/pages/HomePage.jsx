@@ -17,7 +17,6 @@ const HomePage = () => {
                 setNotes(res.data);
                 setIsRateLimited(false);
             } catch (error) {
-                console.error("Error fetching notes", error);
                 if (error.response?.status === 429) {
                     setIsRateLimited(true);
                 } else {
