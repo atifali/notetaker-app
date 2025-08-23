@@ -3,6 +3,10 @@ import { Link } from "react-router"
 import { formatDate } from "../lib/utils"
 
 const NoteCard = ({ note }) => {
+    const handleDelete = async (e, id) => {
+        e.preventDefault();
+    }
+
     return (
         <Link to={`/note/${note._id}`}
             className="card bg-base-200 hover:shadow-lg transition-all duration-200
@@ -19,7 +23,8 @@ const NoteCard = ({ note }) => {
                         <button className="btn btn-ghost btn-xs">
                             <PenSquareIcon className="size-4" />
                         </button>
-                        <button className="btn btn-ghost btn-xs text-red-700">
+                        <button className="btn btn-ghost btn-xs text-red-700"
+                            onClick={(e) => handleDelete(e, note._id)}>
                             <Trash2Icon className="size-4" />
                         </button>
                     </div>
