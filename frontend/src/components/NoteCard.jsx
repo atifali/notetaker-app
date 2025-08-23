@@ -1,6 +1,8 @@
 import { PenSquareIcon, Trash2Icon } from "lucide-react"
 import { Link } from "react-router"
 import { formatDate } from "../lib/utils"
+import api from "../lib/axios"
+import toast from "react-hot-toast"
 
 const NoteCard = ({ note }) => {
     const handleDelete = async (e, id) => {
@@ -8,9 +10,10 @@ const NoteCard = ({ note }) => {
         if (!window.confirm("Are you sure you want to delete this note?")) return;
 
         try {
-
+            await api.delete(`/notes/${id}`);
+            toast.success("Note deleted successfully!");
         } catch (error) {
-
+            toast.error("Failed to delete note!");
         }
     }
 
