@@ -5,6 +5,13 @@ import { formatDate } from "../lib/utils"
 const NoteCard = ({ note }) => {
     const handleDelete = async (e, id) => {
         e.preventDefault();
+        if (!window.confirm("Are you sure you want to delete this note?")) return;
+
+        try {
+
+        } catch (error) {
+
+        }
     }
 
     return (
