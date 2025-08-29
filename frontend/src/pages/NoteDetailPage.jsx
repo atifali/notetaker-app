@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
-import { useNavigate, useParams } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
 import api from "../lib/axios"
 import toast from "react-hot-toast";
-import { LoaderIcon } from "lucide-react";
+import { ArrowLeftIcon, LoaderIcon, Trash2Icon } from "lucide-react";
 
 const NoteDetailPage = () => {
     const [note, setNote] = useState(null);
@@ -32,6 +32,8 @@ const NoteDetailPage = () => {
         fetchNote();
     }, [id]);
 
+    const handleDelete = () => { }
+
     if (loading) {
         return (
             <div className="min-h-screen bg-base-200 flex items-center justify-center">
@@ -43,7 +45,16 @@ const NoteDetailPage = () => {
     return (
         <div className="min-h-screen bg-base-200">
             <div className="container mx-auto px-4 py-8">
-
+                <div className="flex items-center justify-between mb-6">
+                    <Link to="/" className="btn btn-ghost">
+                        <ArrowLeftIcon className="h-5 w-5" />
+                        Back to Notes
+                    </Link>
+                    <button onClick={handleDelete} className="btn btn-error">
+                        <Trash2Icon className="h-5 w-5" />
+                        Delete Note
+                    </button>
+                </div>
             </div>
         </div>
     )
