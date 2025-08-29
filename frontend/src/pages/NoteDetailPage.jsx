@@ -41,7 +41,11 @@ const NoteDetailPage = () => {
     }
 
     return (
-        <div>NoteDetailPage</div>
+        <div className="min-h-screen bg-base-200">
+            <div className="container mx-auto px-4 py-8">
+
+            </div>
+        </div>
     )
 }
 
