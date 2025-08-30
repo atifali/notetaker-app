@@ -56,6 +56,23 @@ const NoteDetailPage = () => {
                             Delete Note
                         </button>
                     </div>
+                    <div className="card bg-base-100">
+                        <div className="card-body">
+                            <div className="form-control mb-4">
+                                <label className="label">
+                                    <span className="label-text">Title</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    placeholder="Note Title"
+                                    className="input input-bordered"
+                                    value={note.title}
+                                    onChange={(e) => setNote({ ...note, title: e.target.value })}
+                                />
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
