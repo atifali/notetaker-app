@@ -33,6 +33,7 @@ const NoteDetailPage = () => {
     }, [id]);
 
     const handleDelete = () => { }
+    const handleSave = () => { }
 
     if (loading) {
         return (
@@ -80,6 +81,11 @@ const NoteDetailPage = () => {
                                     value={note.content}
                                     onChange={(e) => setNote({ ...note, content: e.target.value })}
                                 />
+                            </div>
+                            <div className="card-actions justify-end">
+                                <button className="btn btn-primary" disabled={saving} onClick={handleSave}>
+                                    {saving ? "Saving..." : "Save Changes"}
+                                </button>
                             </div>
                         </div>
                     </div>
