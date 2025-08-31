@@ -43,7 +43,12 @@ const NoteDetailPage = () => {
             toast.error("Failed to Delete Note!");
         }
     }
-    const handleSave = () => { }
+    const handleSave = () => {
+        if (!note.title.trim() || !note.content.trim()) {
+            toast.error("Please add a note title and content!");
+            return
+        }
+    }
 
     if (loading) {
         return (
