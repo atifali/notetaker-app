@@ -43,10 +43,22 @@ const NoteDetailPage = () => {
             toast.error("Failed to Delete Note!");
         }
     }
-    const handleSave = () => {
+    const handleSave = async () => {
         if (!note.title.trim() || !note.content.trim()) {
             toast.error("Please add a note title and content!");
             return
+        }
+
+        setSaving(true);
+
+        try {
+            await api.put(`/notes/${id}`, note);
+            toast.success("Note updated successfully!");
+            navigate("/");
+        } catch (error) {
+            toast.error("Error updatting Note!");
+        } finally {
+            setSaving(false);
         }
     }
 
